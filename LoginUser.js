@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
-import "yup-phone";
-import axios, { Axios } from "axios";
-
-
 
 function LoginUser() {
     const url = ""
     const [data, setData] = useState({
         Name: "",
         Name1: "",
-        Email: "",
-        Password: "",
-        PhoneNo: ""
+
     })
     function handle(e) {
         const newdata = { ...data }
@@ -52,15 +43,6 @@ function LoginUser() {
         e.preventDefault();
         console.log("Submitted values");
     }
-    const FormValidationSchema = yup.object().shape({
-        Name: yup.string().required('First Name is required'),
-        Name1: yup.string().required('Last Name is required'),
-        Email: yup.string().required('Email is required').email("please enter valid email"),
-        Password: yup.string().required('Password is required').matches(/^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$/,
-            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"),
-        PhoneNo: yup.string().phone(null, true, "Invalid PhoneNo").required("PhoneNo is required"),
-    });
-
 
     return (
 
@@ -150,10 +132,7 @@ function LoginUser() {
                                         <span className="hide-menu">User Table</span>
                                     </Link>
                                 </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </aside>
+
 
 
 
@@ -180,9 +159,7 @@ function LoginUser() {
                             <Form>
                                 <div className="col-lg-12 col-xlg-9 col-md-12" onSubmit={handleFormSubmit}>
 
-                                    <div className="card">
-                                        <div className="card-body">
-                                            <form className="form-horizontal form-material" onSubmit={(e) => submit(e)}>
+                                   
                                                 <div className="form-group mb-4">
                                                     <label className="col-md-12 p-0" onChange={(e) => handle(e)} id="Name"
                                                         value={data.Name}>First Name</label>
@@ -248,8 +225,7 @@ function LoginUser() {
                                         </div>
                                     </div>
                                 </div>
-                            </Form>
-                        )}
+                       
                     </Formik>
 
 
